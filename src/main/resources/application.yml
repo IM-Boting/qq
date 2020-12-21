@@ -4,6 +4,7 @@ spring:
       - net.lz1998.pbbot.plugin.LogPlugin # 日志插件
       - net.lz1998.pbbot.plugin.DemoPlugin # 测试插件
       - net.lz1998.pbbot.plugin.HelloPlugin # 测试插件
+      - net.lz1998.pbbot.plugin.DormPlugin # 宿舍群插件
 
 server:
   port: 8081
