@@ -35,6 +35,6 @@ public class HelloPlugin extends BotPlugin {
         if ("hello".equals(text)) {
             bot.sendGroupMsg(groupId, "hi", false);
         }
-        return MESSAGE_BLOCK;
+        return MESSAGE_IGNORE;
     }
 }
