@@ -5,7 +5,11 @@ spring:
       - net.lz1998.pbbot.plugin.DemoPlugin # 测试插件
       - net.lz1998.pbbot.plugin.DormPlugin # 宿舍群插件
       #- net.lz1998.pbbot.plugin.HelloPlugin # 测试插件
+  resources:
+    static-locations: file:/mydata/image
+    #F:\PythonProgram\SpiderTest\day01\image
 
 
 server:
   port: 8081
+

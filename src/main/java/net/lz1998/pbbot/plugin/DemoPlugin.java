@@ -3,17 +3,24 @@ package net.lz1998.pbbot.plugin;
 import lombok.extern.slf4j.Slf4j;
 import net.lz1998.pbbot.bot.Bot;
 import net.lz1998.pbbot.bot.BotPlugin;
+import net.lz1998.pbbot.service.ImageService;
 import net.lz1998.pbbot.utils.Msg;
 import onebot.OnebotBase;
 import onebot.OnebotEvent;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Random;
 
 @Component
 @Slf4j
 public class DemoPlugin extends BotPlugin {
+    //static boolean isUpatingImage = false;
+
+    @Autowired
+    ImageService imageService;
 
     @Override
     public int onPrivateMessage(@NotNull Bot bot, @NotNull OnebotEvent.PrivateMessageEvent event) {
@@ -25,7 +32,7 @@ public class DemoPlugin extends BotPlugin {
                     .face(4)
                     .text("hello!")
                     .text("耗子尾汁")
-                    .image("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1516308740,1469782608&fm=11&gp=0.jpg");
+                    .image("http://localhost:8081/image/0.jpg");
         }else {
             sendMsg = Msg.builder()
                     .face(1)
@@ -49,7 +56,7 @@ public class DemoPlugin extends BotPlugin {
                             .at(userId)
                             .face(178)
                             .text("小伙子，耗子尾汁！")
-                            .image("http://gchat.qpic.cn/gchatpic_new/469021548/667059626-3088001736-DEA2B0E0BDAF3DA85AEB84EB7F3180B6/0?term=3")
+                            .image(imageService.getRandomImageUrl())
                     ;break;
                 case "不是吧":
                     sendMsg = Msg.builder()
